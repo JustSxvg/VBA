@@ -1,17 +1,10 @@
 # VBA
 Excel VBA Macros
-Teniendo los precios a los que diariamente cotiza una acción, la siguiente macro analiza mediante ciertas condiciones si "Comprar" o "Vender", y tras tomar esta decisión, si "Comprar pronto" o "Vender pronto". Para esto, hay un plazo de 30 días en los que se visualiza como se comporta la cotización y, a partir del día 30, se empiezan a tomar estas decisiones de compra o venta.
+Se presenta la siguiente macro cuya finalidad es el cálculo del interés dado un monto inicial, una tasa expresada en porcentajes, un número de periodos (Días, meses, años) y un tipo de interés que puede ser simple o compuesto. Puede resultar útil explicar la composición de esta herramienta para un correcto uso del usuario.
 
-Tenemos 4 valores que son útiles para este análisis:
-- p10 : Promedio de los últimos 10 días del precio de cierre diario para dicha acción
-- p30 : Promedio de los últimos 30 días del precio de cierre diario para dicha acción
-- closet : Valor del primer día desde el que se tomará una decisión
-- closetmenos1: Valor del anterior anterior al que se tomará la primera decisión
+En primer lugar, se tiene un excel que cuenta con 2 hojas: "Cálculo" y "Tipo de interés". En la primera hoja, el usuario encontrará un botón que al darle click, abrirá un formulario el cuál requerirá datos mencionados al inicio de esta explicación. De dejar algún campo vacío o colocar valores no numéricos el formulario devolverá un mensaje que solicite el correcto llenado de datos. 
 
-También tenemos las siguientes condiciones para tomar una decisión:
-1. Si p10 > p30, entonces "Comprar"
-2. Si p10 < p30, entonces "Comprar en corto"
-3. Si closet > closetmenos1*0.8, entonces "Vender"
-4. Si closet < closetmenos1*0.8, entonces "Vender en corto"
+Por otro lado, el formulario también cuenta con 2 botones con una función diferenciada: "Simular" y "Terminar". Una vez realizado el correcto llenado de los datos solicitados al darle click al botón "Simular", en la primera hoja, se procederá con el cálculo del interés y del monto final en el rango B2:C6 tras el cuál los campos se pondrán en vacío para una nueva simulación si esta fuera la preferencia del usuario. Mientras que, el botón "Terminar" eliminará los resultados generados por la simulación y cerrará el formulario.
+
 
 UNMSM, FCE
