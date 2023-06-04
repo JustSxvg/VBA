@@ -1,0 +1,8 @@
+#Código del botón terminar
+
+Private Sub CloseBot_Click()
+Range("B2:C6").ClearContents
+Range("C3:C3").Select
+Selection.NumberFormat = "General"
+Unload CalcInt
+End Sub
