@@ -1,0 +1,120 @@
+#Código del botón simular
+Private Sub SimulBot_Click()
+If TintTXT = Empty Then
+MsgBox "Por favor, ingrese la información solicitada"
+MonTXT.Value = Empty
+TintTXT.Value = Empty
+PerTXT.Value = Empty
+TipintCMB.Value = Empty
+Exit Sub
+Else:
+End If
+    If TipintCMB = Empty Then
+    MsgBox "Por favor, ingrese la información solicitada"
+    MonTXT.Value = Empty
+    TintTXT.Value = Empty
+    PerTXT.Value = Empty
+    TipintCMB.Value = Empty
+    Exit Sub
+    Else:
+    End If
+        If MonTXT = Empty Then
+        MsgBox "Por favor, ingrese la información solicitada"
+        MonTXT.Value = Empty
+        TintTXT.Value = Empty
+        PerTXT.Value = Empty
+        TipintCMB.Value = Empty
+        Exit Sub
+        Else:
+        End If
+            If PerTXT = Empty Then
+            MsgBox "Por favor, ingrese la información solicitada"
+            MonTXT.Value = Empty
+            TintTXT.Value = Empty
+            PerTXT.Value = Empty
+            TipintCMB.Value = Empty
+            Exit Sub
+            Else:
+            End If
+
+If Not IsNumeric(MonTXT.Value) Then
+MsgBox "Por favor, ingrese datos numéricos"
+MonTXT.Value = Empty
+TintTXT.Value = Empty
+PerTXT.Value = Empty
+TipintCMB.Value = Empty
+Exit Sub
+Else:
+End If
+    If Not IsNumeric(TintTXT.Value) Then
+    MsgBox "Por favor, ingrese datos numéricos"
+    MonTXT.Value = Empty
+    TintTXT.Value = Empty
+    PerTXT.Value = Empty
+    TipintCMB.Value = Empty
+    Exit Sub
+    Else:
+    End If
+        If Not IsNumeric(PerTXT.Value) Then
+        MsgBox "Por favor, ingrese datos numéricos"
+        MonTXT.Value = Empty
+        TintTXT.Value = Empty
+        PerTXT.Value = Empty
+        TipintCMB.Value = Empty
+        Exit Sub
+        Else:
+        End If
+   
+Cells(2, 2) = "Monto"
+Cells(3, 2) = "Tasa"
+Cells(4, 2) = "Periodos"
+Cells(5, 2) = "Interés"
+Cells(6, 2) = "Monto final"
+
+Cells(2, 3) = MonTXT.Value
+Cells(3, 3) = (TintTXT.Value) / 100
+Cells(3, 3).NumberFormat = "0.00%"
+Cells(4, 3) = PerTXT.Value
+
+Dim interes As Double
+Dim montfin As Double
+Dim tasint As Double
+Dim numper As Double
+Dim monto As Double
+Dim montofi As Double
+Dim tipint As String
+
+tasint = TintTXT.Value
+tipint = TipintCMB.Value
+monto = MonTXT.Value
+numper = PerTXT.Value
+
+If tipint = "Simple" Then
+   montofi = monto * (1 + ((tasint / 100) * numper))
+   Cells(6, 3).Value = montofi
+   Cells(5, 3).Value = montofi - monto
+   Range("C5:C6").Select
+   Selection.NumberFormat = "0.00"
+   Else:
+   End If
+If tipint = "Compuesto" Then
+   montofi = monto * (1 + (tasint / 100)) ^ numper
+   Cells(6, 3).Value = montofi
+   Cells(5, 3).Value = montofi - monto
+   Range("C5:C6").Select
+   Selection.NumberFormat = "0.00"
+   Else:
+   End If
+   
+MonTXT = Empty
+TintTXT = Empty
+PerTXT = Empty
+TipintCMB = Empty
+MonTXT.SetFocus
+
+
+   
+  
+
+
+End Sub
