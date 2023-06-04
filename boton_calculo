@@ -1,0 +1,5 @@
+#Código del botón "Calcular interés"
+Private Sub UserForm_Initialize()
+Worksheets("Tipo de interés").Activate
+TipintCMB.List = Worksheets("Tipo de interés").Range(Cells(2, 1), Cells(2, 1).Offset(1, 0)).Value
+Worksheets("Cálculo").Activate
